@@ -6,10 +6,9 @@ describe "Merchants API" do
 
     get '/api/v1/merchants'
 
-    expect(response).to be_successful
+		merchants = JSON.parse(response.body)["data"]
 
-		merchants = JSON.parse(response.body)
-
+		expect(response).to be_successful
 		expect(merchants.count).to eq(3)
   end
 
@@ -18,9 +17,20 @@ describe "Merchants API" do
 
 		get "/api/v1/merchants/#{id}"
 
-		merchant = JSON.parse(response.body)
+		merchant = JSON.parse(response.body)["data"]
 
 		expect(response).to be_successful
-		expect(merchant["id"]).to eq(id)
+		expect(merchant["id"]).to eq(id.to_s)
+	end
+
+	xit "can_use_finder_to_return_single_object" do
+		name = create(:merchant).name
+
+		get '/api/v1/merchants/find?parameters'
+
+		merchant = JSON.parse(response.body)["data"]
+
+		expect(response).to be_successful
+		expect(merchant["name"]).to eq(name)
 	end
 end

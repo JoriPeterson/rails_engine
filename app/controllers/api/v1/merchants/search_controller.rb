@@ -1,4 +1,4 @@
-class Api::V1::MerchantsController < ApplicationController
+class Api::V1::Merchants::SearchController < ApplicationController
 
 	def index
 		render json: MerchantSerializer.new(Merchant.all)
