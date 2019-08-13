@@ -3,6 +3,6 @@ FactoryBot.define do
     name { "Ducks" }
 		description { "Rubber Duckies" }
 		unit_price { 4.99 }
-		merchant_id { 1 }
+		merchant
   end
 end

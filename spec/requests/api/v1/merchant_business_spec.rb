@@ -4,7 +4,7 @@ describe "Merchant Business Logic" do
 	before :each do
 
 	end
-  xit "returns merchants with most revenue" do
+  it "returns merchants with most revenue" do
     create_list(:merchant, 10)
 
     get '/api/v1/merchants/most_revenue?quantity=5'

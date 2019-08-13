@@ -23,14 +23,14 @@ describe "Merchants API" do
 		expect(merchant["id"]).to eq(id.to_s)
 	end
 
-	xit "can_use_finder_to_return_single_object" do
-		name = create(:merchant).name
+	it "can_use_finder_to_return_single_object" do
+		merchant = create(:merchant)
 
-		get '/api/v1/merchants/find?parameters'
+		get "/api/v1/merchants/search/find?name=#{merchant.name}"
 
-		merchant = JSON.parse(response.body)["data"]
+		new_merchant = JSON.parse(response.body)
 
 		expect(response).to be_successful
-		expect(merchant["name"]).to eq(name)
+		expect(merchant.name).to eq(new_merchant["data"]["attributes"]["name"])
 	end
 end
