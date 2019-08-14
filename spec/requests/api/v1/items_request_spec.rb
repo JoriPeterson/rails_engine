@@ -1,17 +1,8 @@
 require 'rails_helper'
 
 describe "Items API" do
-	before :each do
-		@merchant = Merchant.create!(name: "Rubber Duckies")
-		@item_1 = @merchant.items.create!(name: "Elvis Ducky", description: "Elvis", unit_price: 5.99, merchant_id: @merchant.id)
-		@item_2 = @merchant.items.create!(name: "Zombie Ducky", description: "Zombie", unit_price: 7.99, merchant_id: @merchant.id)
-		@item_3 = @merchant.items.create!(name: "Bathtime Ducky", description: "Bathtime", unit_price: 5.99, merchant_id: @merchant.id)
-		@item_4 = @merchant.items.create!(name: "Lipstick Ducky", description: "Lipstick", unit_price: 4.99, merchant_id: @merchant.id)
-		@item_5 = @merchant.items.create!(name: "Tay Ducky", description: "Tay", unit_price: 10.99, merchant_id: @merchant.id)
-		@item_6 = @merchant.items.create!(name: "Sejin Ducky", description: "Sejin", unit_price: 0.99, merchant_id: @merchant.id)
-	end
   it "sends a list of items" do
-
+		create_list(:item, 6)
     get '/api/v1/items'
 
 		items = JSON.parse(response.body)["data"]
@@ -21,12 +12,57 @@ describe "Items API" do
   end
 
 	it "can get one item by its id" do
+		id = create(:item).id
 
-		get "/api/v1/items/#{@item_1.id}"
+		get "/api/v1/items/#{id}"
 
 		item = JSON.parse(response.body)["data"]
 
 		expect(response).to be_successful
-		expect(item["id"]).to eq("#{@item_1.id}".to_s)
+		expect(item["id"]).to eq(id.to_s)
+	end
+
+	it "can use finder to return single object by name" do
+		name = create(:item).name
+
+		get "/api/v1/items/find?name=#{name}"
+
+		item = JSON.parse(response.body)["data"]
+
+		expect(response).to be_successful
+		expect(item["attributes"]["name"]).to eq(name)
+	end
+
+	it "can use finder to return single object by id" do
+		item = create(:item)
+
+		get "/api/v1/items/find?id=#{item.id}"
+
+		new_item = JSON.parse(response.body)
+
+		expect(response).to be_successful
+		expect(item.id).to eq(new_item["data"]["attributes"]["id"])
+	end
+
+	it "can use finder to return single object by description" do
+		item = create(:item)
+
+		get "/api/v1/items/find?description=#{item.description}"
+
+		new_item = JSON.parse(response.body)
+
+		expect(response).to be_successful
+		expect(item.description).to eq(new_item["data"]["attributes"]["description"])
+	end
+
+	it "can use finder to return single object by description" do
+		item = create(:item)
+
+		get "/api/v1/items/find?unit_price=#{item.unit_price}"
+
+		new_item = JSON.parse(response.body)
+
+		expect(response).to be_successful
+		expect(item.unit_price).to eq(new_item["data"]["attributes"]["unit_price"])
 	end
 end
