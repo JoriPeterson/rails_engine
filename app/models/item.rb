@@ -6,6 +6,8 @@ class Item < ApplicationRecord
 	validates_presence_of :name, :description, :unit_price
 
 	def self.most_revenue(quantity)
-		joins(:invoices).order("invoice_items.quantity desc").limit(quantity)
+		joins(:invoices).select("invoice_items.quantity * invoice_items.price AS most_revenue")
+										.order("most_revenue desc")
+										.limit(quantity)
 	end
 end
