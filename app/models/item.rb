@@ -15,4 +15,8 @@ class Item < ApplicationRecord
 			.order("revenue desc")
 			.limit(quantity)
 	end
+
+	def self.most_items(quantity)
+		#don't put transactions in query
+	end	
 end
