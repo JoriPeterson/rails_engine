@@ -5,7 +5,6 @@ class Api::V1::Merchants::RevenueController < ApplicationController
 		render json: {"data" => {"attributes" => {'total_revenue' => '%.2f' % (rev.to_f / 100)}}}
 	end
 
-
 	def show
 		merchant = Merchant.find(params[:id])
 		rev = merchant.total_revenue
