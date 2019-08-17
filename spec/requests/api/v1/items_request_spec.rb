@@ -55,7 +55,7 @@ describe "Items API" do
 		expect(item.description).to eq(new_item["data"]["attributes"]["description"])
 	end
 
-	it "can use finder to return single object by description" do
+	it "can use finder to return single object by unit_price" do
 		item = create(:item)
 
 		get "/api/v1/items/find?unit_price=#{item.unit_price}"
@@ -63,6 +63,18 @@ describe "Items API" do
 		new_item = JSON.parse(response.body)
 
 		expect(response).to be_successful
-		expect(item.unit_price).to eq(new_item["data"]["attributes"]["unit_price"])
+		expect(item.unit_price).to eq(new_item["data"]["attributes"]["unit_price"].to_i)
+	end
+
+	it "can use finder to return multiple objects by name" do
+		item_1 = create(:item, name: "banana")
+		item_2 = create(:item, name: "banana")
+
+		get "/api/v1/items/find_all?name=banana"
+
+		items = JSON.parse(response.body)["data"]
+
+		expect(response).to be_successful
+		expect(items.count).to eq(2)
 	end
 end
