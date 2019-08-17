@@ -1,7 +1,6 @@
 class Merchant < ApplicationRecord
 	has_many :items
 	has_many :invoices
-	has_many :invoice_items, through: :invoice_items
 	validates_presence_of :name
 
 	def self.most_revenue(quantity)
@@ -31,18 +30,18 @@ class Merchant < ApplicationRecord
 		.sum("invoice_items.quantity * invoice_items.unit_price")
 	end
 
+	def total_revenue
+		invoices.joins(:transactions)
+		.joins(:invoice_items)
+		.merge(Transaction.successful)
+		.sum("invoice_items.quantity * invoice_items.unit_price")
+	end
+
 	def single_revenue_by_date(date)
 		invoices.joins(:transactions)
 		.joins(:invoice_items)
 		.merge(Transaction.successful)
 		.where({invoices: {created_at: (date.to_date.all_day)}})
-		.sum("invoice_items.quantity * invoice_items.unit_price")
-	end
-
-	def total_revenue
-		invoices.joins(:transactions)
-		.joins(:invoice_items)
-		.merge(Transaction.successful)
 		.sum("invoice_items.quantity * invoice_items.unit_price")
 	end
 
