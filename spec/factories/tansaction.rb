@@ -3,6 +3,6 @@ FactoryBot.define do
     invoice
 		credit_card_number {"1234 5678 1234 1324"}
 		expiration_date {"02/12"}
-		result { 0 }
+		result {"shipped"}
   end
 end
