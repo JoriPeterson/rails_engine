@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 				get '/find', to: 'find#show'
 				get '/find_all', to: 'find#index'
 				get '/most_revenue', to: 'most_revenue#index'
-				get '/:id/invoices_items', to: 'invoices_items#show'
+				get '/:id/invoice_items', to: 'invoice_items#show'
 				get '/:id/merchant', to: 'merchants#show'
 			end
 			namespace :invoices do
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 				get '/find', to: 'find#show'
 				get '/find_all', to: 'find#index'
 				get '/:id/invoice', to: 'invoices#show'
-				get '/:id/items', to: 'items#show'
+				get '/:id/item', to: 'items#show'
 			end
 			namespace :transactions do
 				get '/find', to: 'find#show'
