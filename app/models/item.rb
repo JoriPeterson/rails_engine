@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
 	validates_presence_of :name, :description, :unit_price
 
-	default_scope {order(id: :asc)}
+	# default_scope {order(id: :asc)}
 
 	def self.most_revenue(quantity)
 		joins([invoices: :transactions])
@@ -17,6 +17,10 @@ class Item < ApplicationRecord
 	end
 
 	def self.most_items(quantity)
-		#don't put transactions in query
+		joins(:invoices)
+			.select("items.*, SUM(invoice_items.quantity) AS count")
+			.group(:id)
+			.order("count desc")
+			.limit(quantity)
 	end
 end
