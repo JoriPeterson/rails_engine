@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 			namespace :customers do
 				get '/find', to: 'find#show'
 				get '/find_all', to: 'find#index'
+				get '/:id/favorite_merchant', to: 'favorite_merchant#show'
 				get '/:id/invoices', to: 'invoices#show'
 				get '/:id/transactions', to: 'transactions#show'
 			end
