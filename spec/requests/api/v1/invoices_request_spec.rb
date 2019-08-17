@@ -33,14 +33,14 @@ describe "Invoices API" do
 		expect(invoice["attributes"]["status"]).to eq(status)
 	end
 
-	it "can use finder to return single object by description" do
-		invoice = create(:invoice)
+	it "can use finder to return multiple objects by status" do
+		create_list(:invoice, 4)
 
-		get "/api/v1/invoices/find?unit_price=#{invoice.status}"
+		get "/api/v1/invoices/find_all?status=shipped"
 
-		new_invoice = JSON.parse(response.body)
+		invoices = JSON.parse(response.body)["data"]
 
 		expect(response).to be_successful
-		expect(invoice.status).to eq(new_invoice["data"]["attributes"]["status"])
+		expect(invoices.count).to eq(4)
 	end
 end

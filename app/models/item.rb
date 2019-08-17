@@ -18,5 +18,5 @@ class Item < ApplicationRecord
 
 	def self.most_items(quantity)
 		#don't put transactions in query
-	end	
+	end
 end
