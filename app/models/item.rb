@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
 	validates_presence_of :name, :description, :unit_price
 
-	default_scope {order(id: :asc)}
+	scope :order_by_id, -> { order(id: :asc) }
 
 	def self.most_revenue(quantity)
 		joins([invoices: :transactions])
@@ -17,6 +17,20 @@ class Item < ApplicationRecord
 	end
 
 	def self.most_items(quantity)
-		#don't put transactions in query
+		joins(:invoices)
+			.select("items.*, SUM(invoice_items.quantity) AS count")
+			.group(:id)
+			.order("count desc")
+			.limit(quantity)
+	end
+
+	def best_day
+		invoices.joins(:transactions)
+			.merge(Transaction.successful)
+			.select("invoices.created_at, SUM(invoice_items.quantity * invoice_items.unit_price) AS revenue")
+			.group("invoices.created_at")
+			.order("revenue desc")
+			.order("invoices.created_at desc")
+			.limit(1)
 	end
 end
