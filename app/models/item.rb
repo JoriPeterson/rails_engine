@@ -5,7 +5,7 @@ class Item < ApplicationRecord
 
 	validates_presence_of :name, :description, :unit_price
 
-	scope(:order_by_id, -> { order(id: :asc) })
+	scope :order_by_id, -> { order(id: :asc) }
 
 	def self.most_revenue(quantity)
 		joins([invoices: :transactions])
