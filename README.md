@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails Engine is an API built to access Merchant, Invoices, Items, InvoiceItems, Transactions and Customers. There are record and relationship endpoints for all models, as well as business logic for the merchants, items, and customers. All available endpoints can be found in routes.rb.
 
-Things you may want to cover:
+* Ruby version 5.23
 
-* Ruby version
+* Run bundle
 
-* System dependencies
+* Run rake db:{drop,create,migrate}
 
-* Configuration
+* Run rake import:import_csv
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run rspec
