@@ -25,12 +25,12 @@ describe "InvoiceItems API" do
 	it "can use finder to return single object by unit_price" do
 		invoice_item = create(:invoice_item)
 
-		get "/api/v1/invoice_items/find?unit_price=#{invoice_item.unit_price}"
+		get "/api/v1/invoice_items/find?unit_price=20.00"
 
 		new_invoice_item = JSON.parse(response.body)
 
 		expect(response).to be_successful
-		expect(invoice_item.unit_price).to eq(new_invoice_item["data"]["attributes"]["unit_price"].to_i)
+		expect('%.2f' % (invoice_item.unit_price.to_f/100)).to eq(new_invoice_item["data"]["attributes"]["unit_price"])
 	end
 
 	it "can use finder to return single object by unit_price" do
