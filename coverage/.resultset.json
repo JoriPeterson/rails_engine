@@ -1,41 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Jori/turing/3module/projects/rails_engine/app/models/customer.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null
-      ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/models/invoice_item.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null
-      ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/models/invoice.rb": [
         1,
         1,
@@ -47,42 +12,9 @@
         1,
         null
       ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/models/item.rb": [
+      "/Users/Jori/turing/3module/projects/rails_engine/app/models/application_record.rb": [
         1,
         1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
         null
       ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/models/merchant.rb": [
@@ -143,6 +75,28 @@
         null,
         null
       ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/models/customer.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null
+      ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/models/transaction.rb": [
         1,
         1,
@@ -151,9 +105,76 @@
         1,
         null
       ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/api/v1/transactions/invoices_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/application_controller.rb": [
+        1,
+        null
+      ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/serializers/invoice_serializer.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/mailers/application_mailer.rb": [
         0,
         0,
+        0,
+        0
+      ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/models/item.rb": [
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Jori/turing/3module/projects/rails_engine/app/models/invoice_item.rb": [
+        0,
+        0,
+        0,
+        null,
         0,
         0
       ],
@@ -199,20 +220,6 @@
         0,
         0
       ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/serializers/invoice_serializer.rb": [
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0
-      ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/serializers/customer_serializer.rb": [
         0,
         0,
@@ -221,10 +228,6 @@
         0
       ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/application_controller.rb": [
         0,
         0
       ],
@@ -250,6 +253,7 @@
         0,
         null,
         0,
+        null,
         0,
         0,
         0,
@@ -298,6 +302,7 @@
       "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/api/v1/invoices/find_controller.rb": [
         0,
         null,
+        0,
         0,
         0,
         0,
@@ -484,15 +489,6 @@
         0,
         0
       ],
-      "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/api/v1/transactions/invoices_controller.rb": [
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/api/v1/items_controller.rb": [
         0,
         null,
@@ -532,15 +528,16 @@
         0,
         0,
         0,
+        null,
+        0,
+        0,
+        0,
+        null,
         0,
         null,
         0,
         0,
         0,
-        0,
-        null,
-        0,
-        null,
         0,
         0,
         0,
@@ -597,6 +594,9 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
         0
       ],
       "/Users/Jori/turing/3module/projects/rails_engine/app/controllers/api/v1/invoice_items/invoices_controller.rb": [
@@ -630,6 +630,6 @@
         0
       ]
     },
-    "timestamp": 1566086669
+    "timestamp": 1566091453
   }
 }
