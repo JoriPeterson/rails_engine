@@ -44,9 +44,9 @@ describe "Transactions API" do
 		expect(transaction["attributes"]["result"]).to eq(result)
 	end
 
-	it "can use finder to return multiple objects by result" do
-		transaction_1 = create(:transaction, result: "success")
-		transaction_2 = create(:transaction, result: "success")
+	xit "can use finder to return multiple objects by result" do
+		transaction_1 = create(:transaction, credit_card_number: "1234", result: "success")
+		transaction_2 = create(:transaction, credit_card_number: "2345", result: "success")
 
 		get "/api/v1/items/find_all?result=success"
 

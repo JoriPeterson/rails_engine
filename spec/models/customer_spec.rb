@@ -13,6 +13,7 @@ RSpec.describe Customer do
 			@merchant_3 = create(:merchant, name: "Apples")
 
 			@customer_1 = create(:customer)
+			@customer_2 = create(:customer)
 
 			@item_1 = create(:item, unit_price: 500, merchant_id: @merchant_1.id)
 			@item_2 = create(:item, unit_price: 1000, merchant_id: @merchant_1.id)
@@ -25,10 +26,10 @@ RSpec.describe Customer do
 
 			@invoice_1 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_1.id, created_at: "2019-08-18")
 			@invoice_2 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_1.id, created_at: "2019-08-18")
-			@invoice_3 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_1.id, created_at: "2019-08-18")
-			@invoice_4 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_1.id, created_at: "2019-08-18")
-			@invoice_5 = create(:invoice, merchant_id: @merchant_3.id, customer_id: @customer_1.id, created_at: "2019-08-18")
-			@invoice_6 = create(:invoice, merchant_id: @merchant_3.id, customer_id: @customer_1.id, created_at: "2019-08-18")
+			@invoice_3 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_2.id, created_at: "2019-08-18")
+			@invoice_4 = create(:invoice, merchant_id: @merchant_1.id, customer_id: @customer_2.id, created_at: "2019-08-18")
+			@invoice_5 = create(:invoice, merchant_id: @merchant_3.id, customer_id: @customer_2.id, created_at: "2019-08-18")
+			@invoice_6 = create(:invoice, merchant_id: @merchant_3.id, customer_id: @customer_2.id, created_at: "2019-08-18")
 
 			@invoice_item_1 = create(:invoice_item, quantity: 1, unit_price: @item_1.unit_price, item_id: @item_1.id, invoice_id: @invoice_1.id)
 			@invoice_item_2 = create(:invoice_item, quantity: 1, unit_price: @item_2.unit_price, item_id: @item_2.id, invoice_id: @invoice_2.id)
