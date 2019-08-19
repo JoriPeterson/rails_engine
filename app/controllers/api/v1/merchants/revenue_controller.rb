@@ -7,7 +7,7 @@ class Api::V1::Merchants::RevenueController < ApplicationController
 
 	def show
 		merchant = Merchant.find(params[:id])
-		if !params[:date].nil?
+		if params[:date]
 			rev = merchant.single_revenue_by_date(params[:date])
 		else
 			rev = merchant.total_revenue

@@ -56,14 +56,14 @@ describe "Items API" do
 	end
 
 	it "can use finder to return single object by unit_price" do
-		item = create(:item)
+		item = create(:item, unit_price: 4000)
 
-		get "/api/v1/items/find?unit_price=#{item.unit_price}"
+		get "/api/v1/items/find?unit_price=40.00"
 
 		new_item = JSON.parse(response.body)
 
 		expect(response).to be_successful
-		expect(item.unit_price).to eq(new_item["data"]["attributes"]["unit_price"].to_i)
+		expect('%.2f' % (item.unit_price.to_f/100)).to eq(new_item["data"]["attributes"]["unit_price"])
 	end
 
 	it "can use finder to return multiple objects by name" do

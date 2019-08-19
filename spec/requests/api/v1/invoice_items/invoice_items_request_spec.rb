@@ -25,12 +25,12 @@ describe "InvoiceItems API" do
 	it "can use finder to return single object by unit_price" do
 		invoice_item = create(:invoice_item)
 
-		get "/api/v1/invoice_items/find?unit_price=#{invoice_item.unit_price}"
+		get "/api/v1/invoice_items/find?unit_price=20.00"
 
 		new_invoice_item = JSON.parse(response.body)
 
 		expect(response).to be_successful
-		expect(invoice_item.unit_price).to eq(new_invoice_item["data"]["attributes"]["unit_price"].to_i)
+		expect('%.2f' % (invoice_item.unit_price.to_f/100)).to eq(new_invoice_item["data"]["attributes"]["unit_price"])
 	end
 
 	it "can use finder to return single object by unit_price" do
@@ -44,15 +44,17 @@ describe "InvoiceItems API" do
 		expect(invoice_item.quantity).to eq(new_invoice_item["data"]["attributes"]["quantity"])
 	end
 
-	it "can use finder to return multiple objects by quantity" do
-		invoice_item_1 = create(:invoice_item, quantity: 2)
-		invoice_item_2 = create(:invoice_item, quantity: 2)
+	it "can use finder to return multiple objects by invoice_id" do
+		invoice = create(:invoice)
+		item = create(:item)
+		invoice_item_1 = create(:invoice_item, quantity: 2, invoice_id: invoice.id, item_id: item.id)
+		invoice_item_2 = create(:invoice_item, quantity: 2, invoice_id: invoice.id, item_id: item.id)
 
-		get "/api/v1/invoice_items/find?invoice_id=2"
+		get "/api/v1/invoice_items/find?item_id=#{item.id}"
 
-		invoice_items = JSON.parse(response.body)
-
+		invoice_items = JSON.parse(response.body)["data"]
+	
 		expect(response).to be_successful
-		# expect(invoice_items.count).to eq(2)
+		expect(invoice_items.count).to eq(4)
 	end
 end
