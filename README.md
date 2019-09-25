@@ -9,7 +9,6 @@ Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceIte
 * Rails version 5.2.3
 * Database: Postgresql
 
-
 ### Setup and Configuration:
 
 * Clone this down to your local machine
@@ -17,3 +16,7 @@ Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceIte
 * Run `rake db:{drop,create,migrate}`
 
 * To populate tables run `rake import:import_csv`
+
+### Local Testing:
+
+Within the Rails_Engine repo, `rspec` is being used to test API responses, along with model tests.
