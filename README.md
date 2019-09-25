@@ -19,4 +19,4 @@ Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceIte
 
 ### Local Testing:
 
-Within the Rails_Engine repo, `rspec` is being used to test API responses, along with model tests.
+Within the Rails_Engine repo, Requests specs are being used to test API responses, along with model tests. Just run `rspec` from the command line.
