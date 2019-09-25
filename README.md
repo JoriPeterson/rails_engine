@@ -17,4 +17,3 @@ Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceIte
 * Run `rake db:{drop,create,migrate}`
 
 * To populate tables run `rake import:import_csv`
-* Run rspec
