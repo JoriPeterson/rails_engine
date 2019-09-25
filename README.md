@@ -1,13 +1,20 @@
 # README
+### Overview:
 
-Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceItems, Transactions and Customers. There are record and relationship endpoints for all models, as well as business logic for the merchants, items, and customers. All available endpoints can be found in routes.rb.
+Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceItems, Transactions and Customers. There are endpoints for three categories: search/find, relationships, and business intelligence which required advanced ActiveRecord and SQL.
 
-* Ruby version 5.23
+### Versions:
 
-* Run bundle
+* Ruby Version 2.4.1
+* Rails version 5.2.3
+* Database: Postgresql
 
-* Run rake db:{drop,create,migrate}
 
-* Run rake import:import_csv
+### Setup and Configuration:
 
+* Clone this down to your local machine
+* Run `bundle`
+* Run `rake db:{drop,create,migrate}`
+
+* To populate tables run `rake import:import_csv`
 * Run rspec
