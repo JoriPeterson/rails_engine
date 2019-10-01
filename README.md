@@ -9,7 +9,7 @@ Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceIte
 * Rails version 5.2.3
 * Database: Postgresql
 
-### Setup and Configuration:
+### Setup and Configuration
 
 * Clone this down to your local machine
 * Run `bundle`
