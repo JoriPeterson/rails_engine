@@ -1,7 +1,7 @@
 # README
 ### Overview
 
-Rails Engine is a JSON API built to access Merchant, Invoices, Items, InvoiceItems, Transactions and Customers. There are endpoints for three categories: search/find, relationships, and business intelligence which required advanced ActiveRecord and SQL.
+Rails Engine is a REST API built to access Merchant, Invoices, Items, InvoiceItems, Transactions and Customers. There are endpoints for three categories: search/find, relationships, and business intelligence which required advanced ActiveRecord and SQL. Endpoints are serialized using Fast JSON.
 
 ### Versions
 
